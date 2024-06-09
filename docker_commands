@@ -1,0 +1,2 @@
+docker build -t application:latest .
+docker inspect application:latest | grep cubix.homework.owner
