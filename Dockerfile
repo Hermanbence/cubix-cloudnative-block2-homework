@@ -8,11 +8,9 @@ ENV APP_DEFAULT_MESSAGE=""
 # Add a label with your name
 LABEL cubix.homework.owner="Herman Bence"
 
-# Create a directory
-RUN mkdir /opt/app && chown 1001 -R /opt/app
-
-# Copy the built applications into the image
-COPY target/*.jar /app/
+# Copy application JAR files to the Docker image
+COPY frontapp/target/frontapp.jar /app/frontapp.jar
+COPY backapp/target/backapp.jar /app/backapp.jar
 
 # Define the entry point or command to run your applications if needed
-CMD ["java", "-jar", "/app/app.jar"]
+CMD ["java", "-jar", "/frontapp/app.jar"]

@@ -1,2 +1,9 @@
 docker build -t application:latest .
 docker inspect application:latest | grep cubix.homework.owner
+. --file Dockerfile
+
+
+-t tag
+
+-- file Dockerfile
+but the the default we dont need to give this parameter
