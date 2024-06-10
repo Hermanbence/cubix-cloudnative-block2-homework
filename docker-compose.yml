@@ -1,0 +1,17 @@
+services:
+  backapp:
+    image: backapp_image
+    environment:
+      - CUBIX_HOMEWORK=Herman Bence
+      - APP_DEFAULT_MESSAGE=
+
+  frontapp:
+    image: frontapp_image
+    environment:
+      - CUBIX_HOMEWORK=Herman Bence
+      - APP_DEFAULT_MESSAGE=
+      - BACK_URL=http://backapp:8081
+    ports:
+      - "8080:8080"
+    depends_on:
+      - backapp

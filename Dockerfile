@@ -9,8 +9,8 @@ ENV APP_DEFAULT_MESSAGE=""
 LABEL cubix.homework.owner="Herman Bence"
 
 # Copy application JAR files to the Docker image
-COPY frontapp/target/frontapp.jar /app/frontapp.jar
-COPY backapp/target/backapp.jar /app/backapp.jar
+ARG JAR_FILE
+COPY ${JAR_FILE} /app.jar
 
 # Define the entry point or command to run your applications if needed
-CMD ["java", "-jar", "/frontapp/app.jar"]
+CMD ["java", "-jar", "app.jar"]
