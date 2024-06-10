@@ -47,6 +47,20 @@ dir frontapp && backapp
 
 # Build frontapp image
 docker build -t frontapp_image --build-arg JAR_FILE=frontapp/target/*.jar .
+# Zsh shell globbing issue:
+docker build -t frontapp_image --build-arg JAR_FILE="frontapp/target/*.jar" .
+
+# Print out Labels of the container image
+docker inspect --type image backapp_image | sed -n '/"Labels": {/,/}/p' | sed 's/[{}]//g' | awk NF
+docker inspect --type image frontapp_image | sed -n '/"Labels": {/,/}/p' | sed 's/[{}]//g' | awk NF
+
+# docker inspect --type image backapp_image: Retrieves the inspection data.
+# sed -n '/"Labels": {/,/}/p': Extracts lines from the JSON starting from "Labels": { to }.
+# sed 's/[{}]//g': Removes curly braces {}.
+# awk NF: Prints only non-empty lines, making the output cleaner.
+
 
 # Build backapp image
 docker build -t backapp_image --build-arg JAR_FILE=backapp/target/*.jar .
+# Zsh shell globbing issue:
+docker build -t backapp_image --build-arg JAR_FILE="backapp/target/*.jar" .

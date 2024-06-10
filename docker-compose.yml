@@ -10,8 +10,8 @@ services:
     environment:
       - CUBIX_HOMEWORK=Herman Bence
       - APP_DEFAULT_MESSAGE=
-      - BACK_URL=http://backapp:8081
+      - BACK_URL=http://backapp:8080
     ports:
-      - "8080:8080"
+      - "8081:8081"
     depends_on:
       - backapp
