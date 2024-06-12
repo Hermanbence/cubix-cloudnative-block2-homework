@@ -12,5 +12,8 @@ docker build -t backapp_image --build-arg JAR_FILE="backapp/target/*.jar" .
 docker image inspect frontapp_image -f '{{json .Config.Labels}}'
 docker image inspect backapp_image -f '{{json .Config.Labels}}'
 
+# Docker-compose
+docker-compose up -d
+
 # Docker logs
 docker-compose logs -f frontapp
