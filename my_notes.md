@@ -1,4 +1,5 @@
 # Docker build image
+
 ```docker build -t front_image .```
 - Tag for the image name
 ```
@@ -17,6 +18,9 @@ docker build -f Dockerfile2
 
 https://docs.docker.com/reference/cli/docker/image/build/
 
+
+```docker build -t backapp_image2 -f Dockerfile backapp```
+- "looking for a Dockerfile and use **backapp** (folder) as the root of the build context."
 
 # Docker run
 ```docker run -d --name frontapp_container -p 8080:8080 frontapp_image```

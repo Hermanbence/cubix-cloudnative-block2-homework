@@ -1,12 +1,8 @@
 # Build frontapp image
-docker build -t frontapp_image --build-arg JAR_FILE=frontapp/target/*.jar .
-# Zsh shell globbing issue:
-docker build -t frontapp_image --build-arg JAR_FILE="frontapp/target/*.jar" .
+docker build -t backapp_image2 -f Dockerfile backapp
 
 # Build backapp image
-docker build -t backapp_image --build-arg JAR_FILE=backapp/target/*.jar .
-# Zsh shell globbing issue:
-docker build -t backapp_image --build-arg JAR_FILE="backapp/target/*.jar" .
+docker build -t frontapp_image2 -f Dockerfile frontapp
 
 # Docker image inspect for Labels check
 docker image inspect frontapp_image -f '{{json .Config.Labels}}'
